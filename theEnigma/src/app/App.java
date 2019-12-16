@@ -2,24 +2,54 @@ package app;
 
 import java.util.Scanner;
 
-// Class to test things!
+/**
+
+Remember about changing to another branch !!!!!!!!!!!!!
+Don't work on branch Development and Master!!!!!!!!!!!!!
+
+*/  
 
 public class App {
-    public static void main(String[] args) throws Exception {
+    private Boolean isContinue;
+
+    private void gameLoop() {
         System.out.println("Hello Java");
-        boolean isRunning = true;
+
+
+        MenuHandler.mainMenu();
+
         String yourMenuChoice;
-
-        while (isRunning) {
-            System.out.println("THE ENIGMA");
-            System.out.println("\n[1]-start the Enigma");
-            System.out.println("[2]-credits");
-            System.out.println("[3]-exit game");
-            System.out.println("\nChoose one option: ");
-            isRunning = false;
-        }
-
         Scanner reader = new Scanner(System.in);
         yourMenuChoice = reader.nextLine().toLowerCase();
+
+        switch (yourMenuChoice) {
+            case "1":
+                System.out.println("You are in option 1");
+                break;
+            case "2":
+                System.out.println("You are in option 2");
+                break;
+            case "3":
+                System.out.println("You are in option 3");
+                System.exit(0);
+                break;
+        }
+
+    }
+
+    private App() {
+        this.isContinue = true;
+    }
+
+    private Boolean getIsContinue() {
+        return this.isContinue;
+    }
+    public static void main(String[] args) throws Exception {
+        CommonView.clearScreen();
+
+        App game = new App();
+        while (game.getIsContinue()) {
+            game.gameLoop();
+        }
     }
 }
