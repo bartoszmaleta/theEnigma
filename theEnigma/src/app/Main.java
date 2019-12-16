@@ -11,7 +11,10 @@ Don't work on branch Development and Master!!!!!!!!!!!!!
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        CommonView.clearScreen();
+
         System.out.println("Hello Java");
+
         String yourMenuChoice;
 
         MenuHandler.mainMenu();
