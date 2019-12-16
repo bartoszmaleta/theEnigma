@@ -3,38 +3,37 @@ package app;
 import java.util.Scanner;
 
 /**
-
-Remember about changing to another branch !!!!!!!!!!!!!
-Don't work on branch Development and Master!!!!!!!!!!!!!
-
-*/  
+ * 
+ * Remember about changing to another branch !!!!!!!!!!!!! Don't work on branch
+ * Development and Master!!!!!!!!!!!!!
+ * 
+ */
 
 public class App {
     private Boolean isContinue;
 
     // private void gameLoop() {
-    //     System.out.println("Hello Java");
+    // System.out.println("Hello Java");
 
+    // MenuHandler.mainMenu();
 
-    //     MenuHandler.mainMenu();
+    // String yourMenuChoice;
+    // Scanner reader = new Scanner(System.in);
+    // yourMenuChoice = reader.nextLine().toLowerCase();
 
-    //     String yourMenuChoice;
-    //     Scanner reader = new Scanner(System.in);
-    //     yourMenuChoice = reader.nextLine().toLowerCase();
+    // switch (yourMenuChoice) {
+    // case "1":
+    // System.out.println("You are in option 1");
 
-    //     switch (yourMenuChoice) {
-    //         case "1":
-    //             System.out.println("You are in option 1");
-
-    //             break;
-    //         case "2":
-    //             System.out.println("You are in option 2");
-    //             break;
-    //         case "3":
-    //             System.out.println("You are in option 3");
-    //             System.exit(0);
-    //             break;
-    //     }
+    // break;
+    // case "2":
+    // System.out.println("You are in option 2");
+    // break;
+    // case "3":
+    // System.out.println("You are in option 3");
+    // System.exit(0);
+    // break;
+    // }
 
     // }
 
