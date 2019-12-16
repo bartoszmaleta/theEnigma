@@ -2,13 +2,9 @@ package app;
 
 import java.util.Scanner;
 
-// Class to test things!
-
-public class App {
-    public static void main(String[] args) throws Exception {
-        System.out.println("Hello Java");
+public class MenuHandler {
+    public static void mainMenu() {
         boolean isRunning = true;
-        String yourMenuChoice;
 
         while (isRunning) {
             System.out.println("THE ENIGMA");
@@ -19,7 +15,5 @@ public class App {
             isRunning = false;
         }
 
-        Scanner reader = new Scanner(System.in);
-        yourMenuChoice = reader.nextLine().toLowerCase();
     }
 }
