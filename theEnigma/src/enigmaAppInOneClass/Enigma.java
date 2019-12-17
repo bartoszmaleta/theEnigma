@@ -5,19 +5,31 @@ import enigmaAppInOneClass.*;
 
 /**
  * 
+ * TODO: change switch to "if else"
+ * 
  * Remember about changing to another branch !!!!!!!!!!!!! Don't work on branch
  * Development and Master!!!!!!!!!!!!!
  * 
  */
 
 /**
- * To run option three write in terminal: >>>>>>>>>>> java Enigma.java
- * <firstArgument> <secondArgument> -l <<<<<<<<<<<<<<< for example: java
- * Enigma.java Bartosz Maleta -l
+ * To run option three write in terminal for example: 
+ * java Enigma.java -e CEASAR 4 It will encrypt hard-coded text with [KEY] = 4
+ * 
+ * java Enigma.java -d CEASAR 4 It will decrypt hard-coded textToDecrypt with [KEY] = 4
  * 
  */
 
 public class Enigma {
+    static String text = "ATTACKATONCE";
+    static String textToDecrypt = "EXXEGOEXSRGI";
+
+    static int firstElementOfArrayInArgsOfFunction = 0;
+    static int secondElementOfArrayInArgsOfFunction = 1;
+    static int thirdElementOfArrayInArgsOfFunction = 2;
+    static int fourthElementOfArrayInArgsOfFunction = 3; // redundnat, maybe will be useful in future
+    static int fifthElementOfArrayInArgsOfFunction = 4; // redundnat, maybe will be useful in future
+
     public static StringBuffer encrypt(String text, int s) {
         StringBuffer result = new StringBuffer();
 
@@ -31,6 +43,10 @@ public class Enigma {
             }
         }
         return result;
+    }
+
+    public static void encryptingView() {
+
     }
 
     public static StringBuffer decrypt(String text, int g) {
@@ -49,25 +65,17 @@ public class Enigma {
         return result;
     }
 
+    public static void printAllCiphers() {
+
+    }
+
     public static void main(String[] args) throws Exception {
 
-        System.out.println("Cyphering");
-        String text = "ATTACKATONCE";
-        String textToDecrypt = "EXXEGOEXSRGI";
-        int s = 4;
-        // int g = 4;
-
-        int firstElementOfArrayInArgsOfFunction = 0;
-        int secondElementOfArrayInArgsOfFunction = 1;
-        int thirdElementOfArrayInArgsOfFunction = 2;
-        int fourthElementOfArrayInArgsOfFunction = 3;
-        int fifthElementOfArrayInArgsOfFunction = 4;
+        System.out.println("ENIGMA");
         int intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
 
         System.out.println();
         System.out.println("Your first argument of application is: " + args[firstElementOfArrayInArgsOfFunction]);
-        // System.out.println("Your second argument of application is: " +
-        // args[secondElementOfArrayInArgsOfFunction]);
         System.out.println("------------------");
         System.out.println();
 
@@ -85,13 +93,11 @@ public class Enigma {
                 System.out.println("You are in Ceasar mode");
                 System.out.println();
 
-                // StringBuffer encrypt(String text, int s)
-                System.out.println();
                 System.out.println("------------------");
                 System.out.println("Cyphering");
                 System.out.println("Text   : " + text);
-                System.out.println("Shift  : " + s);
-                System.out.println("Cipher : " + encrypt(text, s));
+                System.out.println("Shift  : " + intputedThirdAgument);
+                System.out.println("Cipher : " + encrypt(text, intputedThirdAgument));
 
                 System.out.println("------------------");
 
@@ -104,15 +110,14 @@ public class Enigma {
         case "-d":
             System.out.println("You are in decipher mode");
             switch (args[secondElementOfArrayInArgsOfFunction]) {
-                case "CEASAR":
+            case "CEASAR":
                 System.out.println();
                 System.out.println("------------------");
-                // stringArgs = args[thirdElementOfArrayInArgsOfFunction];
 
                 System.out.println("Decyphering");
                 System.out.println("Text      : " + textToDecrypt);
-                System.out.println("Shift     : " + g);
-                System.out.println("Decipherd : " + decrypt(textToDecrypt, g));
+                System.out.println("Shift     : " + intputedThirdAgument);
+                System.out.println("Decipherd : " + decrypt(textToDecrypt, intputedThirdAgument));
 
             }
             break;
