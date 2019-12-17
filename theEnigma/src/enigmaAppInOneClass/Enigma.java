@@ -10,11 +10,11 @@ import enigmaAppInOneClass.*;
  * 
  */
 
-/** To run option three write in terminal:
- * >>>>>>>>>>> java Enigma.java <firstArgument> <secondArgument> -l <<<<<<<<<<<<<<<
-   for example:
-   java Enigma.java Bartosz Maleta -l
-
+/**
+ * To run option three write in terminal: >>>>>>>>>>> java Enigma.java
+ * <firstArgument> <secondArgument> -l <<<<<<<<<<<<<<< for example: java
+ * Enigma.java Bartosz Maleta -l
+ * 
  */
 
 public class Enigma {
@@ -25,31 +25,37 @@ public class Enigma {
         int thirdElementOfArrayInArgsOfFunction = 2;
         int fourthElementOfArrayInArgsOfFunction = 3;
         int fifthElementOfArrayInArgsOfFunction = 4;
-        
-        System.out.println("Welcome " + args[firstElementOfArrayInArgsOfFunction]);
-        System.out.println("Your second argument of func is: " + args[secondElementOfArrayInArgsOfFunction ]);
+
+        System.out.println();
+        System.out.println("Your first argument of application is: " + args[firstElementOfArrayInArgsOfFunction]);
+        // System.out.println("Your second argument of application is: " +
+        // args[secondElementOfArrayInArgsOfFunction]);
         System.out.println("------------------");
+        System.out.println();
 
+        switch (args[firstElementOfArrayInArgsOfFunction]) {
+        case "-l":
+            System.out.println("Show all implemented ciphers");
+            System.out.println("Available ciphers/deciphers: ");
+            System.out.println("1. Ceasar (Enter 'CEASAR' as a second parameter of function)");
+            break;
 
-        switch (args[thirdElementOfArrayInArgsOfFunction]) {
-            case "-l":
-                System.out.println("Show all implemented ciphers");
-                break;
-            case "-e":
-                System.out.println("You are in encipher mode");
-                switch (args[fourthElementOfArrayInArgsOfFunction]) {
-                    case "CEASAR":
+        case "-e":
+            System.out.println("You are in encipher mode");
+            switch (args[secondElementOfArrayInArgsOfFunction]) {
+            case "CEASAR":
 
-                        System.out.println("You are in Ceasar mode");
-                        // CeasarCipher.printbla();     // dont know why it does not compile
-                        // enigmaAppInOneClass.CeasarCipher.printbla();     // dont know why it does not compile
-                    }
-                break;
-            case "-d":
-                System.out.println("You are in decipher mode");
-                break;
+                System.out.println("You are in Ceasar mode");
+                // CeasarCipher.printbla(); // dont know why it does not compile
+                // enigmaAppInOneClass.CeasarCipher.printbla(); // dont know why it does not
+                // compile
+            }
+            break;
+
+        case "-d":
+            System.out.println("You are in decipher mode");
+            break;
         }
-
 
     }
 }
