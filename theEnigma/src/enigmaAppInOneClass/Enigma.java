@@ -14,16 +14,19 @@ import enigmaAppInOneClass.*;
  */
 
 /**
- * To run option three write in terminal for example: 
- * java Enigma.java -e CEASAR 4 It will encrypt hard-coded text with [KEY] = 4
+ * To run option three write in terminal for example: java Enigma.java -e CEASAR
+ * 4 It will encrypt hard-coded text with [KEY] = 4
  * 
- * java Enigma.java -d CEASAR 4 It will decrypt hard-coded textToDecrypt with [KEY] = 4
+ * java Enigma.java -d CEASAR 4 It will decrypt hard-coded textToDecrypt with
+ * [KEY] = 4
  * 
  */
 
 public class Enigma {
-    static String text = "CODECOOL";
-    static String textToDecrypt = "GSHIGSSP";
+    // static String text = "codecoolqweqwe";
+    static String text;
+    // static String textToDecrypt = "eduwasdas";
+    static String textToDecrypt;
 
     static int firstElementOfArrayInArgsOfFunction = 0;
     static int secondElementOfArrayInArgsOfFunction = 1;
@@ -51,7 +54,7 @@ public class Enigma {
     }
 
     public static StringBuffer decrypt(String text, int keyNumber) {
-        keyNumber = -keyNumber;
+        keyNumber = -keyNumber + 2;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
@@ -83,7 +86,7 @@ public class Enigma {
         switch (args[firstElementOfArrayInArgsOfFunction]) {
         case "-l":
             System.out.println("All available ciphers/deciphers: ");
-            System.out.println("1. Ceasar (Enter for example 'java Enigma.java -e CEASAR 4' turning on application."); 
+            System.out.println("1. Ceasar (Enter for example 'java Enigma.java -e CEASAR 4' turning on application.");
             System.out.println("First parameter - type of cipher");
             System.out.println("Second parameter - key of cipher (if needed)");
             break;
@@ -96,7 +99,12 @@ public class Enigma {
                 intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
                 System.out.println();
 
+                // Trying input text
+                Scanner reader = new Scanner(System.in);
+                text = reader.nextLine().toLowerCase();
+
                 System.out.println("------------------");
+
                 System.out.println("Cyphering");
                 System.out.println("Text   : " + text);
                 System.out.println("Shift  : " + intputedThirdAgument);
@@ -118,6 +126,10 @@ public class Enigma {
                 intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
                 System.out.println();
 
+                // Trying input text
+                Scanner reader = new Scanner(System.in);
+                textToDecrypt = reader.nextLine().toLowerCase();
+
                 System.out.println("------------------");
 
                 System.out.println("Decyphering");
@@ -125,6 +137,7 @@ public class Enigma {
                 System.out.println("Shift     : " + intputedThirdAgument);
                 System.out.println("Decipherd : " + decrypt(textToDecrypt, intputedThirdAgument));
 
+                System.out.println("------------------");
             }
             break;
         }
