@@ -36,8 +36,7 @@ public class Enigma {
 
     public static StringBuffer encryptCeasar(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
-        keyNumber =  keyNumber + 1;
-
+        keyNumber = keyNumber + 1;
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
@@ -57,7 +56,7 @@ public class Enigma {
 
     public static StringBuffer decryptCeasar(String text, int keyNumber) {
         // keyNumber = -keyNumber + 2;
-        keyNumber =  26 - keyNumber + 2 - 1;
+        keyNumber = 26 - keyNumber + 2 - 1;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
@@ -102,7 +101,8 @@ public class Enigma {
                 intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
                 System.out.println();
 
-                // Trying input text
+                // Input text
+                System.out.println("Enter text to encrypt:");
                 Scanner reader = new Scanner(System.in);
                 text = reader.nextLine().toLowerCase();
 
@@ -122,6 +122,12 @@ public class Enigma {
             case "ROT13":
                 System.out.println("You are in ROT13 mode");
                 System.out.println();
+
+                // Input text
+                System.out.println("Enter text to encrypt:");
+                Scanner readerROT13 = new Scanner(System.in);
+                text = readerROT13.nextLine().toLowerCase();
+                
                 break;
             }
             break;
@@ -134,7 +140,8 @@ public class Enigma {
                 intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
                 System.out.println();
 
-                // Trying input text
+                // Input text
+                System.out.println("Enter text to decrypt:");
                 Scanner reader = new Scanner(System.in);
                 textToDecrypt = reader.nextLine().toLowerCase();
 
@@ -150,6 +157,12 @@ public class Enigma {
             case "ROT13":
                 System.out.println("You are in ROT13 mode");
                 System.out.println();
+
+                // Input text
+                System.out.println("Enter text to decrypt:");
+                Scanner readerROT13 = new Scanner(System.in);
+                textToDecrypt = readerROT13.nextLine().toLowerCase();
+
                 break;
             }
             break;
