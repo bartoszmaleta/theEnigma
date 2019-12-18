@@ -1,6 +1,7 @@
 package enigmaAppInOneClass;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 import enigmaAppInOneClass.*;
 
 /**
@@ -335,6 +336,10 @@ public class Enigma {
     }
     // ------------ MORSE EN-CIPHER METHODS END ------------
     // ---------------------------------------------------------
+// public static void progressBar() {
+//     Thread.sleep(1000);
+
+// }
     // ------------ MAIN ------------
 
     public static void main(String[] args) throws Exception {

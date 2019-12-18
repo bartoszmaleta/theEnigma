@@ -1,6 +1,11 @@
 package app;
 
 import java.util.Scanner;
+import app.CommonView;
+
+/** Unfortunately does not work with terminal commands. Only run by clicking "Run"
+ * The compiler does not see other classes!!
+ */
 
 /**
  * 
