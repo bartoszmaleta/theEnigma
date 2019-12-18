@@ -1,13 +1,17 @@
 package enigmaAppInOneClass;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-import enigmaAppInOneClass.*;
+import java.util.concurrent.TimeUnit;  // time.sleep() ===> maybe in future
+import enigmaAppInOneClass.*;          // does not compile other classes
 
 /**
  * 
  * // Comment test to test branch default on github
- * TODO: change switch to "if else"
+ * TODO: 
+ *  - Change switch to "if else"
+ *  - Add to ceasar cipher recognition of " "           ASAP
+ *  - Polybius Square Cipher                            ASAP
+ *  - Loading BAR                                       ASAP
  * 
  * Remember about changing to another branch !!!!!!!!!!!!! Don't work on branch
  * Development and Master!!!!!!!!!!!!!
@@ -409,14 +413,12 @@ public class Enigma {
                 System.out.println("Enter text to encrypt:");
                 Scanner readerMorse = new Scanner(System.in);
                 text = readerMorse.nextLine().toLowerCase();
-                // text = "codecool";
 
                 System.out.println("------------------");
 
                 System.out.println("Cyphering...");
                 System.out.println("Text   : " + text);
                 System.out.println(stringConvertToMorse((text)));
-                // System.out.println("Shift : " + "13 ----------> because it is ROT3");
 
                 System.out.println("------------------");
                 break;
@@ -471,7 +473,6 @@ public class Enigma {
                 System.out.println("Enter text to decrypt:");
                 Scanner readerMorse = new Scanner(System.in);
                 String textInMorse = readerMorse.nextLine().toLowerCase();
-                // text = "codecool";
 
                 System.out.println("------------------");
 
@@ -484,6 +485,5 @@ public class Enigma {
             }
             break;
         }
-
     }
 }
