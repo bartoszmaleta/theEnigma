@@ -30,15 +30,15 @@ public class Enigma {
     static int fourthElementOfArrayInArgsOfFunction = 3; // redundnat, maybe will be useful in future
     static int fifthElementOfArrayInArgsOfFunction = 4; // redundnat, maybe will be useful in future
 
-    public static StringBuffer encrypt(String text, int s) {
+    public static StringBuffer encrypt(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
-                char ch = (char) (((int) text.charAt(i) + s - 65) % 26 + 65);
+                char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
             } else {
-                char ch = (char) (((int) text.charAt(i) + s - 97) % 26 + 96);
+                char ch = (char) (((int) text.charAt(i) + keyNumber - 97) % 26 + 96);
                 result.append(ch);
             }
         }
@@ -49,16 +49,16 @@ public class Enigma {
 
     }
 
-    public static StringBuffer decrypt(String text, int g) {
-        g = -g;
+    public static StringBuffer decrypt(String text, int keyNumber) {
+        keyNumber = - keyNumber;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
-                char ch = (char) (((int) text.charAt(i) + g - 65) % 26 + 65);
+                char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
             } else {
-                char ch = (char) (((int) text.charAt(i) + g - 97) % 26 + 96);
+                char ch = (char) (((int) text.charAt(i) + keyNumber - 97) % 26 + 96);
                 result.append(ch);
             }
         }
@@ -72,7 +72,7 @@ public class Enigma {
     public static void main(String[] args) throws Exception {
 
         System.out.println("ENIGMA");
-        int intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
+        int intputedThirdAgument;
 
         System.out.println();
         System.out.println("Your first argument of application is: " + args[firstElementOfArrayInArgsOfFunction]);
@@ -88,6 +88,7 @@ public class Enigma {
 
         case "-e":
             System.out.println("You are in encipher mode");
+            intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
             switch (args[secondElementOfArrayInArgsOfFunction]) {
             case "CEASAR":
                 System.out.println("You are in Ceasar mode");
@@ -109,6 +110,7 @@ public class Enigma {
 
         case "-d":
             System.out.println("You are in decipher mode");
+            intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
             switch (args[secondElementOfArrayInArgsOfFunction]) {
             case "CEASAR":
                 System.out.println();
