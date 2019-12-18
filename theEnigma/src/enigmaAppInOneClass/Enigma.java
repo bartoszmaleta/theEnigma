@@ -35,10 +35,10 @@ public class Enigma {
     static int fifthElementOfArrayInArgsOfFunction = 4; // redundnat, maybe will be useful in future
 
     public static void printAllCiphers() {
-        // TODO: 
+        // TODO:
     }
 
-    // ------------------------------------------- CEASAR'S CIPHER METHODS START -------------------------------------------
+    // ------------- CEASAR'S CIPHER METHODS START -------------
     public static StringBuffer encryptCeasar(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
         keyNumber = keyNumber;
@@ -71,12 +71,10 @@ public class Enigma {
         }
         return result;
     }
-    // ------------------------------------------- CEASAR'S CIPHER METHODS END -------------------------------------------
 
-
-
-
-    // ------------------------------------------- ROT13 CIPHER METHODS START -------------------------------------------
+    // -------------- CEASAR'S CIPHER METHODS END --------------
+    // ---------------------------------------------------------
+    // -------------- ROT13 CIPHER METHODS START --------------
     public static StringBuffer encryptROT13(String text) {
         int keyNumberForROT13 = 13;
         StringBuffer result = new StringBuffer();
@@ -109,11 +107,235 @@ public class Enigma {
         }
         return result;
     }
-    // ------------------------------------------- ROT13 CIPHER METHODS END -------------------------------------------
 
-    // ------------------------------------------- MORSE CIPHER METHODS START -------------------------------------------
-    
-    // ------------------------------------------- MORSE CIPHER METHODS END -------------------------------------------
+    // -------------- ROT13 CIPHER METHODS END --------------
+    // ---------------------------------------------------------
+    // ------------ MORSE EN-CIPHER METHODS START ------------
+    public static String stringConvertToMorse(String userString) {
+        String currentChar;
+        String getMorseChar;
+        String convertedString = "";
+
+        for (int i = 0; i < userString.length(); i++) {
+
+            currentChar = userString.charAt(i) + "";
+
+            getMorseChar = convert(currentChar);
+
+            if (getMorseChar.equals(" ")) {
+                convertedString = convertedString + "  |  ";
+            } else {
+                convertedString = convertedString + getMorseChar;
+
+                if (!getMorseChar.equals(" ")) {
+                    convertedString = convertedString + " ";
+                }
+            }
+        }
+
+        return convertedString;
+    }
+
+    public static String convert(String charToMorse) {
+        String morse = charToMorse;
+
+        if (charToMorse.equalsIgnoreCase("a"))
+            morse = ".-";
+        if (charToMorse.equalsIgnoreCase("b"))
+            morse = "-...";
+        if (charToMorse.equalsIgnoreCase("c"))
+            morse = "-.-.";
+        if (charToMorse.equalsIgnoreCase("d"))
+            morse = "-..";
+        if (charToMorse.equalsIgnoreCase("e"))
+            morse = ".";
+        if (charToMorse.equalsIgnoreCase("f"))
+            morse = "..-.";
+        if (charToMorse.equalsIgnoreCase("g"))
+            morse = "--.";
+        if (charToMorse.equalsIgnoreCase("h"))
+            morse = "....";
+        if (charToMorse.equalsIgnoreCase("i"))
+            morse = "..";
+        if (charToMorse.equalsIgnoreCase("j"))
+            morse = ".---";
+        if (charToMorse.equalsIgnoreCase("k"))
+            morse = "-.-";
+        if (charToMorse.equalsIgnoreCase("l"))
+            morse = ".-..";
+        if (charToMorse.equalsIgnoreCase("m"))
+            morse = "--";
+        if (charToMorse.equalsIgnoreCase("n"))
+            morse = "-.";
+        if (charToMorse.equalsIgnoreCase("o"))
+            morse = "---";
+        if (charToMorse.equalsIgnoreCase("p"))
+            morse = ".--.";
+        if (charToMorse.equalsIgnoreCase("q"))
+            morse = "--.-";
+        if (charToMorse.equalsIgnoreCase("r"))
+            morse = ".-.";
+        if (charToMorse.equalsIgnoreCase("s"))
+            morse = "...";
+        if (charToMorse.equalsIgnoreCase("t"))
+            morse = "-";
+        if (charToMorse.equalsIgnoreCase("u"))
+            morse = "..-";
+        if (charToMorse.equalsIgnoreCase("v"))
+            morse = "...-";
+        if (charToMorse.equalsIgnoreCase("w"))
+            morse = ".--";
+        if (charToMorse.equalsIgnoreCase("x"))
+            morse = "-..-";
+        if (charToMorse.equalsIgnoreCase("y"))
+            morse = "-.--";
+        if (charToMorse.equalsIgnoreCase("z"))
+            morse = "--..";
+        if (charToMorse.equalsIgnoreCase("0"))
+            morse = "-----";
+        if (charToMorse.equalsIgnoreCase("1"))
+            morse = ".----";
+        if (charToMorse.equalsIgnoreCase("2"))
+            morse = "..---";
+        if (charToMorse.equalsIgnoreCase("3"))
+            morse = "...--";
+        if (charToMorse.equalsIgnoreCase("4"))
+            morse = "....-";
+        if (charToMorse.equalsIgnoreCase("5"))
+            morse = ".....";
+        if (charToMorse.equalsIgnoreCase("6"))
+            morse = "-....";
+        if (charToMorse.equalsIgnoreCase("7"))
+            morse = "--...";
+        if (charToMorse.equalsIgnoreCase("8"))
+            morse = "---..";
+        if (charToMorse.equalsIgnoreCase("9"))
+            morse = "----.";
+        if (charToMorse.equalsIgnoreCase("."))
+            morse = ".-.-";
+        if (charToMorse.equalsIgnoreCase(","))
+            morse = "--..--";
+        if (charToMorse.equalsIgnoreCase("?"))
+            morse = "..--..";
+
+        return morse;
+    }
+
+    // ------------ MORSE EN-CIPHER METHODS END ------------
+    // ---------------------------------------------------------
+    // ------------ MORSE DE-CIPHER METHODS START ------------
+    public static String morseConvertToString(String userString) {
+        String currentMorseChar;
+        String getStringChar;
+        String convertedMorse = "";
+
+        for (int i = 0; i < userString.length(); i++) {
+
+            currentMorseChar = userString.charAt(i) + "";
+
+            getStringChar = convert(currentMorseChar);
+
+            if (getStringChar.equals(" ")) {
+                convertedMorse = convertedMorse + "  |  ";
+            } else {
+                convertedMorse = convertedMorse + getStringChar;
+
+                if (!getStringChar.equals(" ")) {
+                    convertedMorse = convertedMorse + " ";
+                }
+            }
+        }
+
+        return convertedMorse;
+    }
+
+    public static String convertMorseToChar(String morseToChar) {
+        String characterConverted = morseToChar;
+
+        if (morseToChar.equalsIgnoreCase(".-"))
+            characterConverted = "a";
+        if (morseToChar.equalsIgnoreCase("-..."))
+            characterConverted = "b";
+        if (morseToChar.equalsIgnoreCase("-.-."))
+            characterConverted = "c";
+        if (morseToChar.equalsIgnoreCase("-.."))
+            characterConverted = "d";
+        if (morseToChar.equalsIgnoreCase("."))
+            characterConverted = "e";
+        if (morseToChar.equalsIgnoreCase("..-."))
+            characterConverted = "f";
+        if (morseToChar.equalsIgnoreCase("--."))
+            characterConverted = "g";
+        if (morseToChar.equalsIgnoreCase("...."))
+            characterConverted = "h";
+        if (morseToChar.equalsIgnoreCase(".."))
+            characterConverted = "i";
+        if (morseToChar.equalsIgnoreCase(".---"))
+            characterConverted = "j";
+        if (morseToChar.equalsIgnoreCase("-.-"))
+            characterConverted = "k";
+        if (morseToChar.equalsIgnoreCase(".-.."))
+            characterConverted = "l";
+        if (morseToChar.equalsIgnoreCase("--"))
+            characterConverted = "m";
+        if (morseToChar.equalsIgnoreCase("-."))
+            characterConverted = "n";
+        if (morseToChar.equalsIgnoreCase("---"))
+            characterConverted = "o";
+        if (morseToChar.equalsIgnoreCase(".--."))
+            characterConverted = "p";
+        if (morseToChar.equalsIgnoreCase("--.-"))
+            characterConverted = "q";
+        if (morseToChar.equalsIgnoreCase(".-."))
+            characterConverted = "r";
+        if (morseToChar.equalsIgnoreCase("..."))
+            characterConverted = "s";
+        if (morseToChar.equalsIgnoreCase("-"))
+            characterConverted = "t";
+        if (morseToChar.equalsIgnoreCase("..-"))
+            characterConverted = "u";
+        if (morseToChar.equalsIgnoreCase("...-"))
+            characterConverted = "v";
+        if (morseToChar.equalsIgnoreCase(".--"))
+            characterConverted = "w";
+        if (morseToChar.equalsIgnoreCase("-..-"))
+            characterConverted = "x";
+        if (morseToChar.equalsIgnoreCase("-.--"))
+            characterConverted = "y";
+        if (morseToChar.equalsIgnoreCase("--.."))
+            characterConverted = "z";
+        if (morseToChar.equalsIgnoreCase("-----"))
+            characterConverted = "0";
+        if (morseToChar.equalsIgnoreCase(".----"))
+            characterConverted = "1";
+        if (morseToChar.equalsIgnoreCase("..---"))
+            characterConverted = "2";
+        if (morseToChar.equalsIgnoreCase("...--"))
+            characterConverted = "3";
+        if (morseToChar.equalsIgnoreCase("....-"))
+            characterConverted = "4";
+        if (morseToChar.equalsIgnoreCase("....."))
+            characterConverted = "5";
+        if (morseToChar.equalsIgnoreCase("-...."))
+            characterConverted = "6";
+        if (morseToChar.equalsIgnoreCase("--..."))
+            characterConverted = "7";
+        if (morseToChar.equalsIgnoreCase("---.."))
+            characterConverted = "8";
+        if (morseToChar.equalsIgnoreCase("----."))
+            characterConverted = "9";
+        if (morseToChar.equalsIgnoreCase(".-.-"))
+            characterConverted = ".";
+        if (morseToChar.equalsIgnoreCase("--..--"))
+            characterConverted = ",";
+        if (morseToChar.equalsIgnoreCase("..--.."))
+            characterConverted = "?";
+
+        return characterConverted;
+    }
+    // ------------ MORSE EN-CIPHER METHODS END ------------
+    // ---------------------------------------------------------
+    // ------------ MAIN ------------
 
     public static void main(String[] args) throws Exception {
 
@@ -177,6 +399,25 @@ public class Enigma {
 
                 System.out.println("------------------");
                 break;
+            case "MORSE":
+                System.out.println("You are in MORSE mode");
+                System.out.println();
+
+                // Input text
+                System.out.println("Enter text to encrypt:");
+                Scanner readerMorse = new Scanner(System.in);
+                text = readerMorse.nextLine().toLowerCase();
+                // text = "codecool";
+
+                System.out.println("------------------");
+
+                System.out.println("Cyphering...");
+                System.out.println("Text   : " + text);
+                System.out.println(stringConvertToMorse((text)));
+                // System.out.println("Shift : " + "13 ----------> because it is ROT3");
+
+                System.out.println("------------------");
+                break;
             }
             break;
 
@@ -217,6 +458,24 @@ public class Enigma {
                 System.out.println("Text   : " + textToDecrypt);
                 System.out.println("Shift  : " + "13 ----------> because it is ROT3");
                 System.out.println("Cipher : " + decryptROT13(textToDecrypt));
+
+                System.out.println("------------------");
+                break;
+            case "MORSE":   // DOES NOT WORK, BECAUSE CANT KNOW WHEN STRING/CHARACTER ENDS
+                System.out.println("You are in MORSE mode");
+                System.out.println();
+
+                // Input text
+                System.out.println("Enter text to decrypt:");
+                Scanner readerMorse = new Scanner(System.in);
+                String textInMorse = readerMorse.nextLine().toLowerCase();
+                // text = "codecool";
+
+                System.out.println("------------------");
+
+                System.out.println("Cyphering...");
+                System.out.println("Text   : " + textInMorse);
+                System.out.println(morseConvertToString(textInMorse));
 
                 System.out.println("------------------");
                 break;
