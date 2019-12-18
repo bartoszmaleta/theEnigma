@@ -24,16 +24,12 @@ import enigmaAppInOneClass.*;
  */
 
 public class Enigma {
-    // static String text = "codecoolqweqwe";
     static String text;
-    // static String textToDecrypt = "eduwasdas";
     static String textToDecrypt;
 
     static int firstElementOfArrayInArgsOfFunction = 0;
     static int secondElementOfArrayInArgsOfFunction = 1;
     static int thirdElementOfArrayInArgsOfFunction = 2;
-    static int fourthElementOfArrayInArgsOfFunction = 3; // redundnat, maybe will be useful in future
-    static int fifthElementOfArrayInArgsOfFunction = 4; // redundnat, maybe will be useful in future
 
     public static void printAllCiphers() {
         // TODO:
@@ -336,6 +332,7 @@ public class Enigma {
     }
     // ------------ MORSE EN-CIPHER METHODS END ------------
     // ---------------------------------------------------------
+    // TODO
 // public static void progressBar() {
 //     Thread.sleep(1000);
 
