@@ -34,6 +34,11 @@ public class Enigma {
     static int fourthElementOfArrayInArgsOfFunction = 3; // redundnat, maybe will be useful in future
     static int fifthElementOfArrayInArgsOfFunction = 4; // redundnat, maybe will be useful in future
 
+    public static void printAllCiphers() {
+        // TODO: 
+    }
+
+    // ------------------------------------------- CEASAR'S CIPHER METHODS START -------------------------------------------
     public static StringBuffer encryptCeasar(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
         keyNumber = keyNumber;
@@ -48,10 +53,6 @@ public class Enigma {
             }
         }
         return result;
-    }
-
-    public static void encryptingView() {
-
     }
 
     public static StringBuffer decryptCeasar(String text, int keyNumber) {
@@ -70,11 +71,12 @@ public class Enigma {
         }
         return result;
     }
+    // ------------------------------------------- CEASAR'S CIPHER METHODS END -------------------------------------------
 
-    public static void printAllCiphers() {
 
-    }
 
+
+    // ------------------------------------------- ROT13 CIPHER METHODS START -------------------------------------------
     public static StringBuffer encryptROT13(String text) {
         int keyNumberForROT13 = 13;
         StringBuffer result = new StringBuffer();
@@ -107,6 +109,11 @@ public class Enigma {
         }
         return result;
     }
+    // ------------------------------------------- ROT13 CIPHER METHODS END -------------------------------------------
+
+    // ------------------------------------------- MORSE CIPHER METHODS START -------------------------------------------
+    
+    // ------------------------------------------- MORSE CIPHER METHODS END -------------------------------------------
 
     public static void main(String[] args) throws Exception {
 
