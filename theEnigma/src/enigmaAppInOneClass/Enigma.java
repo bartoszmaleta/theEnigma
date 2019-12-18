@@ -5,7 +5,7 @@ import enigmaAppInOneClass.*;
 
 /**
  * 
- * // Comment test
+ * // Comment test to test branch default on github
  * TODO: change switch to "if else"
  * 
  * Remember about changing to another branch !!!!!!!!!!!!! Don't work on branch
