@@ -36,14 +36,14 @@ public class Enigma {
 
     public static StringBuffer encryptCeasar(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
-        keyNumber = keyNumber + 1;
+        keyNumber = keyNumber;
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
             } else {
-                char ch = (char) (((int) text.charAt(i) + keyNumber - 97) % 26 + 96);
+                char ch = (char) (((int) text.charAt(i) + keyNumber - 96) % 26 + 96);
                 result.append(ch);
             }
         }
@@ -56,7 +56,7 @@ public class Enigma {
 
     public static StringBuffer decryptCeasar(String text, int keyNumber) {
         // keyNumber = -keyNumber + 2;
-        keyNumber = 26 - keyNumber + 2 - 1;
+        keyNumber = 26 - keyNumber;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
@@ -64,7 +64,7 @@ public class Enigma {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
             } else {
-                char ch = (char) (((int) text.charAt(i) + keyNumber - 97) % 26 + 96);
+                char ch = (char) (((int) text.charAt(i) + keyNumber - 96) % 26 + 96);
                 result.append(ch);
             }
         }
@@ -73,6 +73,39 @@ public class Enigma {
 
     public static void printAllCiphers() {
 
+    }
+
+    public static StringBuffer encryptROT13(String text) {
+        int keyNumberForROT13 = 13;
+        StringBuffer result = new StringBuffer();
+
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isUpperCase(text.charAt(i))) {
+                char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 65) % 26 + 65);
+                result.append(ch);
+            } else {
+                char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 96) % 26 + 96);
+                result.append(ch);
+            }
+        }
+        return result;
+    }
+
+    public static StringBuffer decryptROT13(String text) {
+        int keyNumberForROT13 = 26 - 13;
+        System.out.println(keyNumberForROT13);
+        StringBuffer result = new StringBuffer();
+
+        for (int i = 0; i < text.length(); i++) {
+            if (Character.isUpperCase(text.charAt(i))) {
+                char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 65) % 26 + 65);
+                result.append(ch);
+            } else {
+                char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 96) % 26 + 96);
+                result.append(ch);
+            }
+        }
+        return result;
     }
 
     public static void main(String[] args) throws Exception {
@@ -127,7 +160,15 @@ public class Enigma {
                 System.out.println("Enter text to encrypt:");
                 Scanner readerROT13 = new Scanner(System.in);
                 text = readerROT13.nextLine().toLowerCase();
-                
+
+                System.out.println("------------------");
+
+                System.out.println("Cyphering...");
+                System.out.println("Text   : " + text);
+                System.out.println("Shift  : " + "13 ----------> because it is ROT3");
+                System.out.println("Cipher : " + encryptROT13(text));
+
+                System.out.println("------------------");
                 break;
             }
             break;
@@ -163,6 +204,14 @@ public class Enigma {
                 Scanner readerROT13 = new Scanner(System.in);
                 textToDecrypt = readerROT13.nextLine().toLowerCase();
 
+                System.out.println("------------------");
+
+                System.out.println("Cyphering...");
+                System.out.println("Text   : " + textToDecrypt);
+                System.out.println("Shift  : " + "13 ----------> because it is ROT3");
+                System.out.println("Cipher : " + decryptROT13(textToDecrypt));
+
+                System.out.println("------------------");
                 break;
             }
             break;
