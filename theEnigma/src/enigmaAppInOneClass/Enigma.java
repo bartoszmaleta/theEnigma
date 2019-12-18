@@ -118,6 +118,11 @@ public class Enigma {
                 // CeasarCipher.printbla(); // dont know why it does not compile
                 // enigmaAppInOneClass.CeasarCipher.printbla(); // dont know why it does not
                 // compile
+                break;
+            case "ROT13":
+                System.out.println("You are in ROT13 mode");
+                System.out.println();
+                break;
             }
             break;
 
@@ -141,6 +146,11 @@ public class Enigma {
                 System.out.println("Decipherd : " + decryptCeasar(textToDecrypt, intputedThirdAgument));
 
                 System.out.println("------------------");
+                break;
+            case "ROT13":
+                System.out.println("You are in ROT13 mode");
+                System.out.println();
+                break;
             }
             break;
         }
