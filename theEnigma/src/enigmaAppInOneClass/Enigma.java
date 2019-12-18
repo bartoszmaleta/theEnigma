@@ -34,8 +34,10 @@ public class Enigma {
     static int fourthElementOfArrayInArgsOfFunction = 3; // redundnat, maybe will be useful in future
     static int fifthElementOfArrayInArgsOfFunction = 4; // redundnat, maybe will be useful in future
 
-    public static StringBuffer encrypt(String text, int keyNumber) {
+    public static StringBuffer encryptCeasar(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
+        keyNumber =  keyNumber + 1;
+
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
@@ -53,8 +55,9 @@ public class Enigma {
 
     }
 
-    public static StringBuffer decrypt(String text, int keyNumber) {
-        keyNumber = -keyNumber + 2;
+    public static StringBuffer decryptCeasar(String text, int keyNumber) {
+        // keyNumber = -keyNumber + 2;
+        keyNumber =  26 - keyNumber + 2 - 1;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
@@ -108,7 +111,7 @@ public class Enigma {
                 System.out.println("Cyphering");
                 System.out.println("Text   : " + text);
                 System.out.println("Shift  : " + intputedThirdAgument);
-                System.out.println("Cipher : " + encrypt(text, intputedThirdAgument));
+                System.out.println("Cipher : " + encryptCeasar(text, intputedThirdAgument));
 
                 System.out.println("------------------");
 
@@ -135,7 +138,7 @@ public class Enigma {
                 System.out.println("Decyphering");
                 System.out.println("Text      : " + textToDecrypt);
                 System.out.println("Shift     : " + intputedThirdAgument);
-                System.out.println("Decipherd : " + decrypt(textToDecrypt, intputedThirdAgument));
+                System.out.println("Decipherd : " + decryptCeasar(textToDecrypt, intputedThirdAgument));
 
                 System.out.println("------------------");
             }
