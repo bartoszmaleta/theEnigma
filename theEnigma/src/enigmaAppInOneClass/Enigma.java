@@ -5,6 +5,7 @@ import enigmaAppInOneClass.*;
 
 /**
  * 
+ * // Comment test
  * TODO: change switch to "if else"
  * 
  * Remember about changing to another branch !!!!!!!!!!!!! Don't work on branch
@@ -21,8 +22,8 @@ import enigmaAppInOneClass.*;
  */
 
 public class Enigma {
-    static String text = "ATTACKATONCE";
-    static String textToDecrypt = "EXXEGOEXSRGI";
+    static String text = "CODECOOL";
+    static String textToDecrypt = "GSHIGSSP";
 
     static int firstElementOfArrayInArgsOfFunction = 0;
     static int secondElementOfArrayInArgsOfFunction = 1;
@@ -50,7 +51,7 @@ public class Enigma {
     }
 
     public static StringBuffer decrypt(String text, int keyNumber) {
-        keyNumber = - keyNumber;
+        keyNumber = -keyNumber;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
@@ -81,17 +82,18 @@ public class Enigma {
 
         switch (args[firstElementOfArrayInArgsOfFunction]) {
         case "-l":
-            System.out.println("Show all implemented ciphers");
-            System.out.println("Available ciphers/deciphers: ");
-            System.out.println("1. Ceasar (Enter 'CEASAR' as a second parameter of function)");
+            System.out.println("All available ciphers/deciphers: ");
+            System.out.println("1. Ceasar (Enter for example 'java Enigma.java -e CEASAR 4' turning on application."); 
+            System.out.println("First parameter - type of cipher");
+            System.out.println("Second parameter - key of cipher (if needed)");
             break;
 
         case "-e":
             System.out.println("You are in encipher mode");
-            intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
             switch (args[secondElementOfArrayInArgsOfFunction]) {
             case "CEASAR":
                 System.out.println("You are in Ceasar mode");
+                intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
                 System.out.println();
 
                 System.out.println("------------------");
@@ -110,10 +112,12 @@ public class Enigma {
 
         case "-d":
             System.out.println("You are in decipher mode");
-            intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
             switch (args[secondElementOfArrayInArgsOfFunction]) {
             case "CEASAR":
+                System.out.println("You are in Ceasar mode");
+                intputedThirdAgument = Integer.parseInt(args[thirdElementOfArrayInArgsOfFunction]);
                 System.out.println();
+
                 System.out.println("------------------");
 
                 System.out.println("Decyphering");
