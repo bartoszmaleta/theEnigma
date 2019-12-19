@@ -577,7 +577,7 @@ public class Enigma {
                 System.out.println();
 
                 System.out.println("Text   : " + textInMorse);
-                // System.out.println(morseConvertToString(textInMorse));           # DOES NOT WORK
+                // System.out.println(morseConvertToString(textInMorse));       # DOES NOT WORK
 
                 System.out.println();
                 System.out.println("------------------");
@@ -638,7 +638,7 @@ public class Enigma {
         }
     }
     // ------ PROGRESS BAR FUNCTION END ------
-    // Implementing
+
     // ------ BLANK LINES ------
     public static void blankLines(int numberOfBlankLines) {
         StringBuffer result = new StringBuffer();
