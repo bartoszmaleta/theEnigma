@@ -1,8 +1,8 @@
 package enigmaAppInOneClass;
 
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;  // time.sleep() ===> maybe in future
-import enigmaAppInOneClass.*;          // does not compile other classes
+import java.util.concurrent.TimeUnit; // time.sleep() ===> maybe in future
+import enigmaAppInOneClass.*; // does not compile other classes
 
 /**
  * 
@@ -336,11 +336,7 @@ public class Enigma {
     }
     // ------------ MORSE EN-CIPHER METHODS END ------------
     // ---------------------------------------------------------
-    // TODO
-// public static void progressBar() {
-//     Thread.sleep(1000);
 
-// }
     // ------------ MAIN ------------
 
     public static void main(String[] args) throws Exception {
@@ -355,6 +351,19 @@ public class Enigma {
 
         switch (args[firstElementOfArrayInArgsOfFunction]) {
         case "-l":
+        // PROGRESS BAR ------ START ------
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
+            for (int i = 0; i <= 200; i = i + 20) {
+                progressPercentage(i, 200);
+                try {
+                    Thread.sleep(400);
+
+                } catch (Exception e) {
+                }
+            }
+        // PROGRESS BAR ------ END ------
+
             System.out.println("All available ciphers/deciphers: ");
             System.out.println("1. Ceasar (Enter for example 'java Enigma.java -e CEASAR 4' turning on application.");
             System.out.println("First parameter - type of cipher");
@@ -465,7 +474,7 @@ public class Enigma {
 
                 System.out.println("------------------");
                 break;
-            case "MORSE":   // DOES NOT WORK, BECAUSE CANT KNOW WHEN STRING/CHARACTER ENDS
+            case "MORSE": // DOES NOT WORK, BECAUSE CANT KNOW WHEN STRING/CHARACTER ENDS
                 System.out.println("You are in MORSE mode");
                 System.out.println();
 
@@ -486,4 +495,28 @@ public class Enigma {
             break;
         }
     }
+
+    // ------ PROGRESS BAR FUNCTION START ------ 
+    public static void progressPercentage(int remain, int total) {
+        if (remain > total) {
+            throw new IllegalArgumentException();
+        }
+        int maxBareSize = 10; // 10unit for 100%
+        int remainProcent = ((100 * remain) / total) / maxBareSize;
+        char defaultChar = '-';
+        String icon = "=";
+        String bar = new String(new char[maxBareSize]).replace('\0', defaultChar) + "]";
+        StringBuilder barDone = new StringBuilder();
+        barDone.append("[");
+        for (int i = 0; i < remainProcent; i++) {
+            barDone.append(icon);
+        }
+        String barRemain = bar.substring(remainProcent, bar.length());
+        System.out.print("\r" + barDone + barRemain + " " + remainProcent * 10 + "%");
+        if (remain == total) {
+            System.out.print("\n");
+        }
+    }
+    // ------ PROGRESS BAR FUNCTION END ------ 
+
 }
