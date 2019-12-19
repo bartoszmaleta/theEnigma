@@ -313,27 +313,23 @@ public class Enigma {
 
         switch (args[firstElementOfArrayInArgsOfFunction]) {
         case "-l":
-            // PROGRESS BAR ------ START ------
-            System.out.print("\033[H\033[2J");
-            System.out.flush();
-            for (int i = 0; i <= 200; i = i + 20) {
-                progressPercentage(i, 200);
-                try {
-                    Thread.sleep(400);
+            System.out.println(" _________________________________ ");
+            System.out.println("|                                 |");
+            System.out.println("| All available ciphers/deciphers |");
+            System.out.println("|_________________________________|");
+            System.out.println();
+            System.out.println();
+            System.out.println("1. CEASAR      ==>     (Enter in terminal:   'java Enigma.java -e CEASAR 4'    ==>   to turn on application.");
+            System.out.println("2. ROT13       ==>     (Enter in terminal:   'java Enigma.java -e ROT13'       ==>   to turn on application.");
+            System.out.println("3. ATBASH      ==>     (Enter in terminal:   'java Enigma.java -e ATBASH'      ==>   to turn on application.");
+            System.out.println("4. MORSE       ==>     (Enter in terminal:   'java Enigma.java -e MORSE'       ==>   to turn on application.");
 
-                } catch (Exception e) {
-                }
-            }
-            // PROGRESS BAR ------ END ------
-
-            System.out.println("All available ciphers/deciphers: ");
-            System.out.println("1. CEASAR => (Enter in termina:    'java Enigma.java -e CEASAR 4' to turn on application.");
-            System.out.println("2. ROT13 => (Enter in terminal:    'java Enigma.java -e ROT13' to turn on application.");
-            System.out.println("3. ATBASH => (Enter in terminal:   'java Enigma.java -e ATBASH' to turn on application.");
-            System.out.println("4. MORSE => (Enter in terminal:    'java Enigma.java -e MORSE' to turn on application.");
-
-            System.out.println("First parameter - type of cipher");
-            System.out.println("Second parameter - key of cipher (if needed)");
+            System.out.println();
+            System.out.println();
+            System.out.println("First parameter of application     ===>     type of cipher");
+            System.out.println("Second parameter of application    ===>     key of cipher (if needed)");
+            System.out.println();
+            System.out.println();
             break;
 
         case "-e":
