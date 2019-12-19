@@ -11,7 +11,7 @@ import enigmaAppInOneClass.*; // does not compile other classes
  *  - Change switch to "if else"
  *  - Add to ceasar cipher recognition of " "           ASAP
  *  - Polybius Square Cipher                            ASAP
- *  - Loading BAR                                       ASAP
+ *  - Loading BAR                                       DONE
  * 
  * Remember about changing to another branch !!!!!!!!!!!!! Don't work on branch
  * Development and Master!!!!!!!!!!!!!
@@ -49,8 +49,11 @@ public class Enigma {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
             } else {
+                if (Character.isSpaceChar(text.charAt(i))) {
+                    result.append(" ");
+                } else {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 96) % 26 + 96);
-                result.append(ch);
+                result.append(ch); }
             }
         }
         return result;
@@ -66,8 +69,11 @@ public class Enigma {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
             } else {
+                if (Character.isSpaceChar(text.charAt(i))) {
+                    result.append(" ");
+                } else {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 96) % 26 + 96);
-                result.append(ch);
+                result.append(ch); }
             }
         }
         return result;
@@ -85,8 +91,11 @@ public class Enigma {
                 char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 65) % 26 + 65);
                 result.append(ch);
             } else {
+                if (Character.isSpaceChar(text.charAt(i))) {
+                    result.append(" ");
+                } else {
                 char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 96) % 26 + 96);
-                result.append(ch);
+                result.append(ch); }
             }
         }
         return result;
@@ -101,9 +110,12 @@ public class Enigma {
             if (Character.isUpperCase(text.charAt(i))) {
                 char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 65) % 26 + 65);
                 result.append(ch);
-            } else {
+            } else { 
+                if (Character.isSpaceChar(text.charAt(i))) {
+                    result.append(" ");
+                } else {
                 char ch = (char) (((int) text.charAt(i) + keyNumberForROT13 - 96) % 26 + 96);
-                result.append(ch);
+                result.append(ch); }
             }
         }
         return result;
