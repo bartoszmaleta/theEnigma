@@ -594,5 +594,5 @@ public class Enigma {
         }
     }
     // ------ PROGRESS BAR FUNCTION END ------
-
+    // Implementing
 }
