@@ -237,118 +237,9 @@ public class Enigma {
     }
 
     // ------------ MORSE EN-CIPHER METHODS END ------------
-    // ---------------------------------------------------------
     // ------------ MORSE DE-CIPHER METHODS START ------------
-    public static String morseConvertToString(String userString) {
-        String currentMorseChar;
-        String getStringChar;
-        String convertedMorse = "";
-
-        for (int i = 0; i < userString.length(); i++) {
-
-            currentMorseChar = userString.charAt(i) + "";
-
-            getStringChar = convert(currentMorseChar);
-
-            if (getStringChar.equals(" ")) {
-                convertedMorse = convertedMorse + "  |  ";
-            } else {
-                convertedMorse = convertedMorse + getStringChar;
-
-                if (!getStringChar.equals(" ")) {
-                    convertedMorse = convertedMorse + " ";
-                }
-            }
-        }
-
-        return convertedMorse;
-    }
-
-    public static String convertMorseToChar(String morseToChar) {
-        String characterConverted = morseToChar;
-
-        if (morseToChar.equalsIgnoreCase(".-"))
-            characterConverted = "a";
-        if (morseToChar.equalsIgnoreCase("-..."))
-            characterConverted = "b";
-        if (morseToChar.equalsIgnoreCase("-.-."))
-            characterConverted = "c";
-        if (morseToChar.equalsIgnoreCase("-.."))
-            characterConverted = "d";
-        if (morseToChar.equalsIgnoreCase("."))
-            characterConverted = "e";
-        if (morseToChar.equalsIgnoreCase("..-."))
-            characterConverted = "f";
-        if (morseToChar.equalsIgnoreCase("--."))
-            characterConverted = "g";
-        if (morseToChar.equalsIgnoreCase("...."))
-            characterConverted = "h";
-        if (morseToChar.equalsIgnoreCase(".."))
-            characterConverted = "i";
-        if (morseToChar.equalsIgnoreCase(".---"))
-            characterConverted = "j";
-        if (morseToChar.equalsIgnoreCase("-.-"))
-            characterConverted = "k";
-        if (morseToChar.equalsIgnoreCase(".-.."))
-            characterConverted = "l";
-        if (morseToChar.equalsIgnoreCase("--"))
-            characterConverted = "m";
-        if (morseToChar.equalsIgnoreCase("-."))
-            characterConverted = "n";
-        if (morseToChar.equalsIgnoreCase("---"))
-            characterConverted = "o";
-        if (morseToChar.equalsIgnoreCase(".--."))
-            characterConverted = "p";
-        if (morseToChar.equalsIgnoreCase("--.-"))
-            characterConverted = "q";
-        if (morseToChar.equalsIgnoreCase(".-."))
-            characterConverted = "r";
-        if (morseToChar.equalsIgnoreCase("..."))
-            characterConverted = "s";
-        if (morseToChar.equalsIgnoreCase("-"))
-            characterConverted = "t";
-        if (morseToChar.equalsIgnoreCase("..-"))
-            characterConverted = "u";
-        if (morseToChar.equalsIgnoreCase("...-"))
-            characterConverted = "v";
-        if (morseToChar.equalsIgnoreCase(".--"))
-            characterConverted = "w";
-        if (morseToChar.equalsIgnoreCase("-..-"))
-            characterConverted = "x";
-        if (morseToChar.equalsIgnoreCase("-.--"))
-            characterConverted = "y";
-        if (morseToChar.equalsIgnoreCase("--.."))
-            characterConverted = "z";
-        if (morseToChar.equalsIgnoreCase("-----"))
-            characterConverted = "0";
-        if (morseToChar.equalsIgnoreCase(".----"))
-            characterConverted = "1";
-        if (morseToChar.equalsIgnoreCase("..---"))
-            characterConverted = "2";
-        if (morseToChar.equalsIgnoreCase("...--"))
-            characterConverted = "3";
-        if (morseToChar.equalsIgnoreCase("....-"))
-            characterConverted = "4";
-        if (morseToChar.equalsIgnoreCase("....."))
-            characterConverted = "5";
-        if (morseToChar.equalsIgnoreCase("-...."))
-            characterConverted = "6";
-        if (morseToChar.equalsIgnoreCase("--..."))
-            characterConverted = "7";
-        if (morseToChar.equalsIgnoreCase("---.."))
-            characterConverted = "8";
-        if (morseToChar.equalsIgnoreCase("----."))
-            characterConverted = "9";
-        if (morseToChar.equalsIgnoreCase(".-.-"))
-            characterConverted = ".";
-        if (morseToChar.equalsIgnoreCase("--..--"))
-            characterConverted = ",";
-        if (morseToChar.equalsIgnoreCase("..--.."))
-            characterConverted = "?";
-
-        return characterConverted;
-    }
-    // ------------ MORSE EN-CIPHER METHODS END ------------
+    // TODO:
+    // ------------ MORSE DE-CIPHER METHODS END ------------
     // ---------------------------------------------------------
     // ------------ ATBASH EN-CIPHER METHODS START ------------
 
@@ -686,7 +577,7 @@ public class Enigma {
                 System.out.println();
 
                 System.out.println("Text   : " + textInMorse);
-                System.out.println(morseConvertToString(textInMorse));
+                // System.out.println(morseConvertToString(textInMorse));           # DOES NOT WORK
 
                 System.out.println();
                 System.out.println("------------------");
