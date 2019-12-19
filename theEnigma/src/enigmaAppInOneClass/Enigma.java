@@ -336,7 +336,62 @@ public class Enigma {
     }
     // ------------ MORSE EN-CIPHER METHODS END ------------
     // ---------------------------------------------------------
+    // ------------ ATBASH EN-CIPHER METHODS START ------------
 
+    public static String atbashEncrypt(String msgToEncrypt) {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String reversedAlphabet = "";
+        String encryptedMsg = "";
+
+        for (int i = alphabet.length() - 1; i >= 0; i--) {
+            reversedAlphabet = reversedAlphabet + alphabet.charAt(i);
+        }
+
+        for (int i = 0; i < msgToEncrypt.length(); i++) {
+            if (msgToEncrypt.charAt(i) == (char) 32) {
+                encryptedMsg += " ";
+            } else {
+                for (int j = 0; j < alphabet.length(); j++) {
+                    if (msgToEncrypt.charAt(i) == alphabet.charAt(j)) {
+                        encryptedMsg += reversedAlphabet.charAt(j);
+                        break;
+                    }
+                }
+            }
+        }
+
+        return encryptedMsg;
+    }
+
+    // ------------ ATBASH EN-CIPHER METHODS END ------------
+    // ------------ ATBASH DE-CIPHER METHODS START ------------
+
+    public static String atbashDecrypt(String msgToEncrypt) {
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String reversedAlphabet = "";
+        String decryptedMsg = "";
+
+        for (int i = alphabet.length() - 1; i >= 0; i--) {
+            reversedAlphabet = reversedAlphabet + alphabet.charAt(i);
+        }
+
+        for (int i = 0; i < msgToEncrypt.length(); i++) {
+            if (msgToEncrypt.charAt(i) == (char) 32) {
+                decryptedMsg += " ";
+            } else {
+                for (int j = 0; j < reversedAlphabet.length(); j++) {
+                    if (msgToEncrypt.charAt(i) == reversedAlphabet.charAt(j)) {
+                        decryptedMsg += alphabet.charAt(j);
+                        break;
+                    }
+                }
+            }
+        }
+        return decryptedMsg;
+    }
+
+    // ------------ ATBASH DE-CIPHER METHODS END ------------
+    // ---------------------------------------------------------
     // ------------ MAIN ------------
 
     public static void main(String[] args) throws Exception {
@@ -351,7 +406,7 @@ public class Enigma {
 
         switch (args[firstElementOfArrayInArgsOfFunction]) {
         case "-l":
-        // PROGRESS BAR ------ START ------
+            // PROGRESS BAR ------ START ------
             System.out.print("\033[H\033[2J");
             System.out.flush();
             for (int i = 0; i <= 200; i = i + 20) {
@@ -362,7 +417,7 @@ public class Enigma {
                 } catch (Exception e) {
                 }
             }
-        // PROGRESS BAR ------ END ------
+            // PROGRESS BAR ------ END ------
 
             System.out.println("All available ciphers/deciphers: ");
             System.out.println("1. Ceasar (Enter for example 'java Enigma.java -e CEASAR 4' turning on application.");
@@ -431,6 +486,18 @@ public class Enigma {
 
                 System.out.println("------------------");
                 break;
+            case "ATBASH":
+                System.out.println("You are in ATBASH mode");
+                Scanner inputFromUser = new Scanner(System.in);
+
+                System.out.println("\nEnter your message to encrypt: ");
+                String msgToEncrypt = inputFromUser.nextLine();
+                msgToEncrypt = msgToEncrypt.toLowerCase();
+
+                System.out.println("------------------------------------");
+                System.out.println("Cyphering");
+                System.out.println("Ciphered: " + atbashEncrypt(msgToEncrypt));
+                break;
             }
             break;
 
@@ -491,12 +558,21 @@ public class Enigma {
 
                 System.out.println("------------------");
                 break;
+            case "ATBASH":
+                Scanner inputFromUser = new Scanner(System.in);
+                System.out.println("\nEnter your message to decrypt: ");
+                String msgToDecrypt = inputFromUser.nextLine();
+                msgToDecrypt = msgToDecrypt.toLowerCase();
+
+                System.out.println("------------------------------------");
+                System.out.println("Decyphering");
+                System.out.println("Decipherd : " + atbashDecrypt(msgToDecrypt));
             }
             break;
         }
     }
 
-    // ------ PROGRESS BAR FUNCTION START ------ 
+    // ------ PROGRESS BAR FUNCTION START ------
     public static void progressPercentage(int remain, int total) {
         if (remain > total) {
             throw new IllegalArgumentException();
@@ -517,6 +593,6 @@ public class Enigma {
             System.out.print("\n");
         }
     }
-    // ------ PROGRESS BAR FUNCTION END ------ 
+    // ------ PROGRESS BAR FUNCTION END ------
 
 }
