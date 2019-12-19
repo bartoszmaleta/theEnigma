@@ -748,7 +748,7 @@ public class Enigma {
     }
     // ------ PROGRESS BAR FUNCTION END ------
     // Implementing
-    // BLANK LINES
+    // ------ BLANK LINES ------
     public static void blankLines(int numberOfBlankLines) {
         StringBuffer result = new StringBuffer();
        
