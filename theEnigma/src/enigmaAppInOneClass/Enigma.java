@@ -42,7 +42,7 @@ public class Enigma {
     // ------------- CEASAR'S CIPHER METHODS START -------------
     public static StringBuffer encryptCeasar(String text, int keyNumber) {
         StringBuffer result = new StringBuffer();
-        keyNumber = keyNumber;
+        keyNumber = keyNumber + 1;
 
         for (int i = 0; i < text.length(); i++) {
             if (Character.isUpperCase(text.charAt(i))) {
@@ -58,7 +58,7 @@ public class Enigma {
 
     public static StringBuffer decryptCeasar(String text, int keyNumber) {
         // keyNumber = -keyNumber + 2;
-        keyNumber = 26 - keyNumber;
+        keyNumber = 26 - keyNumber - 1;
         StringBuffer result = new StringBuffer();
 
         for (int i = 0; i < text.length(); i++) {
@@ -395,6 +395,8 @@ public class Enigma {
     // ------------ MAIN ------------
 
     public static void main(String[] args) throws Exception {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
 
         System.out.println("ENIGMA");
         int intputedThirdAgument;
@@ -438,13 +440,28 @@ public class Enigma {
                 Scanner reader = new Scanner(System.in);
                 text = reader.nextLine().toLowerCase();
 
-                System.out.println("------------------");
 
-                System.out.println("Cyphering");
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Cyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
+
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+                System.out.println();
+
                 System.out.println("Text   : " + text);
                 System.out.println("Shift  : " + intputedThirdAgument);
                 System.out.println("Cipher : " + encryptCeasar(text, intputedThirdAgument));
 
+                System.out.println();
                 System.out.println("------------------");
 
                 // CeasarCipher.printbla(); // dont know why it does not compile
@@ -460,13 +477,28 @@ public class Enigma {
                 Scanner readerROT13 = new Scanner(System.in);
                 text = readerROT13.nextLine().toLowerCase();
 
-                System.out.println("------------------");
 
-                System.out.println("Cyphering...");
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Cyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
+
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+                System.out.println();
+
                 System.out.println("Text   : " + text);
                 System.out.println("Shift  : " + "13 ----------> because it is ROT3");
                 System.out.println("Cipher : " + encryptROT13(text));
 
+                System.out.println();
                 System.out.println("------------------");
                 break;
             case "MORSE":
@@ -478,12 +510,26 @@ public class Enigma {
                 Scanner readerMorse = new Scanner(System.in);
                 text = readerMorse.nextLine().toLowerCase();
 
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Cyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
+
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
                 System.out.println("------------------");
+                System.out.println();
 
-                System.out.println("Cyphering...");
-                System.out.println("Text   : " + text);
-                System.out.println(stringConvertToMorse((text)));
+                System.out.println("Text     : " + text);
+                System.out.println("Ciphered : " + stringConvertToMorse((text)));
 
+                System.out.println();
                 System.out.println("------------------");
                 break;
             case "ATBASH":
@@ -494,9 +540,28 @@ public class Enigma {
                 String msgToEncrypt = inputFromUser.nextLine();
                 msgToEncrypt = msgToEncrypt.toLowerCase();
 
-                System.out.println("------------------------------------");
-                System.out.println("Cyphering");
-                System.out.println("Ciphered: " + atbashEncrypt(msgToEncrypt));
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Cyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
+
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+
+                System.out.println();
+
+                System.out.println("Text     : " + msgToEncrypt);
+                System.out.println("Ciphered : " + atbashEncrypt(msgToEncrypt));
+
+                System.out.println();
+                System.out.println("------------------");
                 break;
             }
             break;
@@ -514,9 +579,22 @@ public class Enigma {
                 Scanner reader = new Scanner(System.in);
                 textToDecrypt = reader.nextLine().toLowerCase();
 
-                System.out.println("------------------");
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Decyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
 
-                System.out.println("Decyphering");
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+                System.out.println();
+
                 System.out.println("Text      : " + textToDecrypt);
                 System.out.println("Shift     : " + intputedThirdAgument);
                 System.out.println("Decipherd : " + decryptCeasar(textToDecrypt, intputedThirdAgument));
@@ -532,13 +610,27 @@ public class Enigma {
                 Scanner readerROT13 = new Scanner(System.in);
                 textToDecrypt = readerROT13.nextLine().toLowerCase();
 
-                System.out.println("------------------");
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Decyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
 
-                System.out.println("Cyphering...");
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+                System.out.println();
+
                 System.out.println("Text   : " + textToDecrypt);
                 System.out.println("Shift  : " + "13 ----------> because it is ROT3");
                 System.out.println("Cipher : " + decryptROT13(textToDecrypt));
 
+                System.out.println();
                 System.out.println("------------------");
                 break;
             case "MORSE": // DOES NOT WORK, BECAUSE CANT KNOW WHEN STRING/CHARACTER ENDS
@@ -550,12 +642,26 @@ public class Enigma {
                 Scanner readerMorse = new Scanner(System.in);
                 String textInMorse = readerMorse.nextLine().toLowerCase();
 
-                System.out.println("------------------");
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Decyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
 
-                System.out.println("Cyphering...");
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+                System.out.println();
+
                 System.out.println("Text   : " + textInMorse);
                 System.out.println(morseConvertToString(textInMorse));
 
+                System.out.println();
                 System.out.println("------------------");
                 break;
             case "ATBASH":
@@ -564,9 +670,28 @@ public class Enigma {
                 String msgToDecrypt = inputFromUser.nextLine();
                 msgToDecrypt = msgToDecrypt.toLowerCase();
 
-                System.out.println("------------------------------------");
-                System.out.println("Decyphering");
+                // PROGRESS BAR ------ START ------
+                for (int i = 0; i <= 200; i = i + 20) {
+                    System.out.print("\033[H\033[2J");
+                    System.out.flush();
+                    System.out.println("Decyphering");
+                    progressPercentage(i, 200);
+                    try {
+                        Thread.sleep(400);
+
+                    } catch (Exception e) {
+                    }
+                }
+                // PROGRESS BAR ------ END ------
+                System.out.println("------------------");
+                System.out.println();
+
+                System.out.println("Text   : " + msgToDecrypt);
                 System.out.println("Decipherd : " + atbashDecrypt(msgToDecrypt));
+
+                System.out.println();
+                System.out.println("------------------");
+
             }
             break;
         }
@@ -594,5 +719,5 @@ public class Enigma {
         }
     }
     // ------ PROGRESS BAR FUNCTION END ------
-
+    // Implementing
 }
