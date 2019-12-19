@@ -9,7 +9,7 @@ import enigmaAppInOneClass.*; // does not compile other classes
  * // Comment test to test branch default on github
  * TODO: 
  *  - Change switch to "if else"
- *  - Add to ceasar cipher recognition of " "           ASAP
+ *  - Add to ceasar cipher recognition of " "           DONE
  *  - Polybius Square Cipher                            ASAP
  *  - Loading BAR                                       DONE
  * 
@@ -34,6 +34,8 @@ public class Enigma {
     static int firstElementOfArrayInArgsOfFunction = 0;
     static int secondElementOfArrayInArgsOfFunction = 1;
     static int thirdElementOfArrayInArgsOfFunction = 2;
+
+    static int numberOfBlankLines;
 
     public static void printAllCiphers() {
         // TODO:
@@ -434,7 +436,11 @@ public class Enigma {
             // PROGRESS BAR ------ END ------
 
             System.out.println("All available ciphers/deciphers: ");
-            System.out.println("1. Ceasar (Enter for example 'java Enigma.java -e CEASAR 4' turning on application.");
+            System.out.println("1. CEASAR => (Enter in termina:    'java Enigma.java -e CEASAR 4' to turn on application.");
+            System.out.println("2. ROT13 => (Enter in terminal:    'java Enigma.java -e ROT13' to turn on application.");
+            System.out.println("3. ATBASH => (Enter in terminal:   'java Enigma.java -e ATBASH' to turn on application.");
+            System.out.println("4. MORSE => (Enter in terminal:    'java Enigma.java -e MORSE' to turn on application.");
+
             System.out.println("First parameter - type of cipher");
             System.out.println("Second parameter - key of cipher (if needed)");
             break;
@@ -455,8 +461,11 @@ public class Enigma {
 
                 // PROGRESS BAR ------ START ------
                 for (int i = 0; i <= 200; i = i + 20) {
+
+
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Cyphering");
                     progressPercentage(i, 200);
                     try {
@@ -494,6 +503,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Cyphering");
                     progressPercentage(i, 200);
                     try {
@@ -526,6 +536,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Cyphering");
                     progressPercentage(i, 200);
                     try {
@@ -556,6 +567,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Cyphering");
                     progressPercentage(i, 200);
                     try {
@@ -595,6 +607,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Decyphering");
                     progressPercentage(i, 200);
                     try {
@@ -626,6 +639,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Decyphering");
                     progressPercentage(i, 200);
                     try {
@@ -658,6 +672,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Decyphering");
                     progressPercentage(i, 200);
                     try {
@@ -686,6 +701,7 @@ public class Enigma {
                 for (int i = 0; i <= 200; i = i + 20) {
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
+                    blankLines(7);
                     System.out.println("Decyphering");
                     progressPercentage(i, 200);
                     try {
@@ -732,4 +748,16 @@ public class Enigma {
     }
     // ------ PROGRESS BAR FUNCTION END ------
     // Implementing
+    // BLANK LINES
+    public static void blankLines(int numberOfBlankLines) {
+        StringBuffer result = new StringBuffer();
+       
+        for (int i = 1; i < numberOfBlankLines; i++) {
+            String blankLine = "\n";
+            result.append(blankLine);
+        }
+        System.out.println(result);
+        // return result;
+    
+    }
 }

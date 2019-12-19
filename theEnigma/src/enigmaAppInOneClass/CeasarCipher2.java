@@ -10,9 +10,9 @@ public class CeasarCipher2 {
         keyNumber = keyNumber + 1;
 
         for (int i = 0; i < text.length(); i++) {
-            // if (Character.isSpaceChar(text.charAt(i))) {
-            //     result.append(" ");
-            // }
+            if (Character.isSpaceChar(text.charAt(i))) {
+                result.append(" ");
+            }
             if (Character.isUpperCase(text.charAt(i))) {
                 char ch = (char) (((int) text.charAt(i) + keyNumber - 65) % 26 + 65);
                 result.append(ch);
