@@ -140,7 +140,7 @@ public class Enigma {
             if (getMorseChar.equals(" ")) {
                 convertedString = convertedString + "  |  ";
             } else {
-                convertedString = convertedString + getMorseChar;
+                convertedString +=  getMorseChar;
 
                 if (!getMorseChar.equals(" ")) {
                     convertedString = convertedString + " ";

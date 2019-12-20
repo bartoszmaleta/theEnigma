@@ -37,6 +37,7 @@ public class TestFuncs {
             result.append(blankLine);
         }
         System.out.println(result);
+        
         // return result;
     }
 
